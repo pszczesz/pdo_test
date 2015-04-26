@@ -22,6 +22,12 @@
         <h4><a href="allusers.php" >Wyświetl wszystkich użytkownika</a></h4>
         <?php
         
+        echo session_name();
+        if(isset($_SESSION['user'])){
+            echo "Zalogowany";
+        }else{
+            echo "niezalogowany";
+        }
         ?>
     </body>
 </html>

@@ -28,6 +28,11 @@ and open the template in the editor.
                 $sqluser = $sqlRepo->GetUser($u1);
                 if($sqluser->getPassword()===md5($u1->getPassword())){
                     echo '<p>udało się zalogować</p>';
+                    session_start();
+                    $_SESSION['user']=$sqluser->getLogin();
+                    var_dump($_SESSION);
+                    echo "Zalogowano: ".$_SESSION['user'];
+                    echo "Nazwa sesji:" .session_name()."<br>";
                 }else{
                     echo '<p>Błędne hasło!!</p>';
                 }
